@@ -1,0 +1,59 @@
+name: jira update
+
+on: 
+ pull_request:
+  branches:
+      - main
+      - 'releases/**'
+
+jobs:
+  build:
+    name: Build and Run Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+       with:
+#          fetch-depth: 0  # OR "2" -> To retrieve the preceding commit.
+         submodules: true # OR "recursive" -> To include all changed submodule files.
+
+      - name: Get changed files using defaults
+        id: changed-files
+        uses: tj-actions/changed-files@v19
+
+      - name: Get changed files using a comma separator
+        id: changed-files-comma
+        uses: tj-actions/changed-files@v19
+        with:
+          separator: ","
+          
+      - name: Get LenderService changes
+        id: changed-lender-service
+        uses: tj-actions/changed-files@v19
+        with:
+          files: |
+            **/LenderService.java
+          files_ignore: |
+            *.yml
+            *.xml
+            *.sql
+
+      - name: Run step when LenderService changes
+        if: steps.changed-lender-service.outputs.modified_files.any_changed == 'true'
+        run: |
+          echo "LenderService file has been modified."
+
+         - name: Get changelog file creation
+        id: added-changelog-file
+        uses: tj-actions/changed-files@v19
+        with:
+          files: |
+            **/changelog.xml
+          files_ignore: |
+            *.yml
+            *.java
+            *.sql
+
+      - name: Run step when changelog.xml are added or modified
+        if: steps.added-changelog-file.outputs.modified_files.any_changed == 'true'
+        run: |
+          echo "One or more changelog.xml files has been added."
