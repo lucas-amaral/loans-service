@@ -1,9 +1,9 @@
 # Loans Service
 
-It is an application to find a quote from Zopa’s market of lenders for 36-month
+It is an application to find a quote from market of lenders for 36-month
 loans that applies interest on a monthly basis.
 
-To ensure that Zopa's quotes are competitive, this application chooses a combination of lenders’ offers which
+This application chooses a combination of lenders’ offers which
 gives the lowest possible rate. 
 The monthly repayment and the total repayment amounts
 should be shown in addition to the amount requested and the annual interest rate for the
