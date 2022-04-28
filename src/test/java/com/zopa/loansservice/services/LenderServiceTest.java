@@ -95,7 +95,8 @@ class LenderServiceTest {
 
         final List<Lender> selectedLenders = lenderService.getFilteredLowestLendersByAmount(lenders, amount);
 
-        assertThat(selectedLenders).isEqualTo(lenders);
+//         assertThat(selectedLenders).isEqualTo(lenders);
+        assertThat(selectedLenders).isEmpty();
     }
 
     @Test
