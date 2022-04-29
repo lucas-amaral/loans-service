@@ -19,13 +19,7 @@ jobs:
       - name: Get changed files using defaults
         id: changed-files
         uses: tj-actions/changed-files@v19
-
-      - name: Get changed files using a comma separator
-        id: changed-files-comma
-        uses: tj-actions/changed-files@v19
-        with:
-          separator: ","
-          
+        
       - name: Get LenderService changes
         id: changed-lender-service
         uses: tj-actions/changed-files@v19
@@ -36,9 +30,13 @@ jobs:
             *.yml
             *.xml
             *.sql
-
+      
+      - name: Show changed-lender-service
+        run: |
+          echo steps.changed-lender-service.outputs.modified_files
+      
       - name: Run step when LenderService changes
-        if: steps.changed-lender-service.outputs.modified_files.any_changed == 'true'
+        if: steps.changed-lender-service.outputs.modified_files.any_changed
         run: |
           echo "LenderService file has been modified."
 
