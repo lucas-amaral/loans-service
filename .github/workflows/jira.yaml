@@ -42,7 +42,7 @@ jobs:
         run: |
           echo "LenderService file has been modified."
 
-         - name: Get changelog file creation
+      - name: Get changelog file creation
         id: added-changelog-file
         uses: tj-actions/changed-files@v19
         with:
