@@ -33,10 +33,10 @@ jobs:
       
       - name: Show changed-lender-service
         run: |
-          echo steps.changed-lender-service.outputs.modified_files
+          echo $steps.changed-lender-service.outputs.modified_files
       
       - name: Run step when LenderService changes
-        if: steps.changed-lender-service.outputs.modified_files.any_changed
+        if: steps.changed-lender-service.outputs.modified_files.any_modified == 'true'
         run: |
           echo "LenderService file has been modified."
 
