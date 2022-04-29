@@ -13,43 +13,21 @@ jobs:
   build:
     name: Jira actions
     runs-on: ubuntu-latest
-    steps:
+    steps:    
+      - uses: actions/checkout@v3
       - name: Login on Jira
         uses: atlassian/gajira-login@master
         env:
           JIRA_BASE_URL: ${{ secrets.JIRA_BASE_URL }}
           JIRA_USER_EMAIL: ${{ secrets.JIRA_USER_EMAIL }}
           JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
-          
-#       - name: Find Jira issue key in branch messages
-#         uses: atlassian/gajira-find-issue-key@master
-#         id: jira-key
-#         with:
-#           from: branch
-          
+                    
       - name: Find Jira issue key in commit messages
         id: jira-key
         uses: atlassian/gajira-find-issue-key@master
         with:
           from: commits
      
-#       - name: Find in commit messages 2
-#         uses: atlassian/gajira-find-issue-key@master
-#         with:
-#           string: ${{ github.event.ref }}
-#           from: ""
-          
-#       - name: Find in commit messages 3
-#         uses: atlassian/gajira-find-issue-key@master
-#         with:
-#           string: ${{ github.event.pull_request.title }}
-#           from: ""
-    
-      - uses: actions/checkout@v3
-#         with:
-#          fetch-depth: 0  # OR "2" -> To retrieve the preceding commit.
-#          submodules: true # OR "recursive" -> To include all changed submodule files.
-   
       - name: Get changed files using defaults
         id: changed-files
         uses: tj-actions/changed-files@v19
@@ -65,11 +43,10 @@ jobs:
             *.xml
             *.sql
                     
-      - name: Run step when LenderService changes
+      - name: Add Jira label when LenderService file changes
         if: steps.changed-lender-service.outputs.any_modified == 'true'
         run: |
           curl -D- -u ${{ secrets.JIRA_USER_EMAIL }}:${{ secrets.JIRA_API_TOKEN }} -X PUT --data '{ "update": { "labels": [{"add":"NewLabel"}]}}' -H "Content-Type: application/json" '${{ secrets.JIRA_BASE_URL }}/rest/api/2/issue/${{ steps.jira-key.outputs.issue }}'
-#          echo "LenderService file has been modified for ticket ${{ steps.jira-key.outputs.issue }}."
           
       - name: Get changelog file creation
         id: added-changelog-file
@@ -82,7 +59,7 @@ jobs:
             *.java
             *.sql
 
-      - name: Run step when changelog.xml are added or modified
+      - name: Set custon field value when changelog.xml are added
         if: steps.added-changelog-file.outputs.any_changed == 'true'
         run: |
-          echo "One or more changelog.xml files has been added for ticket ${{ steps.jira-key.outputs.issue }}."
+          curl -D- -u ${{ secrets.JIRA_USER_EMAIL }}:${{ secrets.JIRA_API_TOKEN }} -X PUT --data '{ "fields" : { "customfield_10029" : "${{ steps.added-changelog-file.outputs.added_files }}"}}' -H "Content-Type: application/json" '${{ secrets.JIRA_BASE_URL }}/rest/api/2/issue/${{ steps.jira-key.outputs.issue }}'
