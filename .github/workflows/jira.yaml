@@ -11,6 +11,11 @@ jobs:
     name: Jira actions
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
+#         with:
+#          fetch-depth: 0  # OR "2" -> To retrieve the preceding commit.
+#          submodules: true # OR "recursive" -> To include all changed submodule files.
+
       - name: Login
         uses: atlassian/gajira-login@master
         env:
@@ -23,12 +28,17 @@ jobs:
         id: jira-key
         with:
           from: branch
-    
-      - uses: actions/checkout@v3
-#         with:
-#          fetch-depth: 0  # OR "2" -> To retrieve the preceding commit.
-#          submodules: true # OR "recursive" -> To include all changed submodule files.
-
+      - name: Find in commit messages
+        id: jira-key-2
+        uses: atlassian/gajira-find-issue-key@master
+        with:
+          from: commits
+      
+      - name: Find in commit messages
+        uses: atlassian/gajira-find-issue-key@master
+        with:
+          string: ${{ github.event.ref }}
+   
       - name: Get changed files using defaults
         id: changed-files
         uses: tj-actions/changed-files@v19
