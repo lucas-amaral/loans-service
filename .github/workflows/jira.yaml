@@ -25,15 +25,11 @@ jobs:
         uses: tj-actions/changed-files@v19
         with:
           files: |
-            **/LenderService.java
+              src/main/java/com/zopa/loansservice/services/LenderService.java
           files_ignore: |
             *.yml
             *.xml
             *.sql
-      
-      - name: Show changed-lender-service
-        run: |
-          echo $steps.changed-lender-service.outputs.modified_files
       
       - name: Run step when LenderService changes
         if: steps.changed-lender-service.outputs.modified_files.any_modified == 'true'
