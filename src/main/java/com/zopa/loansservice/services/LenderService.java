@@ -19,7 +19,7 @@ import com.zopa.loansservice.services.validations.LoansCalculatorValidator;
 @Service
 public class LenderService {
 
-    private static final Sort SORT_BY_RATE = Sort.by(Sort.Direction.ASC, "rate"); //just a new comment
+    private static final Sort SORT_BY_RATE = Sort.by(Sort.Direction.ASC, "rate");
     private static final int PAGE_SIZE = 50;
     private static final int PAGE_NUMBER = 0;
 
