@@ -40,18 +40,18 @@ jobs:
           
       - name: Show any_modified
         run: |
-           echo "$steps.changed-lender-service.outputs.modified_files.any_modified"
+           echo "$steps.changed-lender-service.outputs.any_modified"
            
       - name: Show only_changed
         run: |
-           echo "$steps.changed-lender-service.outputs.modified_files.only_changed"
+           echo "$steps.changed-lender-service.outputs.only_changed"
            
       - name: Show any_changed
         run: |
-           echo "$steps.changed-lender-service.outputs.modified_files.any_changed"
+           echo "$steps.changed-lender-service.outputs.any_changed"
 
       - name: Run step when LenderService changes
-        if: steps.changed-lender-service.outputs.modified_files.any_modified == 'true'
+        if: steps.changed-lender-service.outputs.any_modified == 'true'
         run: |
           echo "LenderService file has been modified."
           
