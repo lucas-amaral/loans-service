@@ -25,7 +25,7 @@ jobs:
         uses: tj-actions/changed-files@v19
         with:
           files: |
-              '**/LenderService.java'
+            **/LenderService.java
           files_ignore: |
             *.yml
             *.xml
@@ -36,6 +36,19 @@ jobs:
           for file in ${{ steps.changed-lender-service.outputs.modified_files }}; do
             echo "$file finded"
           done
+          
+          
+      - name: Show any_modified
+        run: |
+           echo "$steps.changed-lender-service.outputs.modified_files.any_modified
+           
+      - name: Show only_changed
+        run: |
+           echo "$steps.changed-lender-service.outputs.modified_files.only_changed
+           
+      - name: Show any_changed
+        run: |
+           echo "$steps.changed-lender-service.outputs.modified_files.any_changed
 
       - name: Run step when LenderService changes
         if: steps.changed-lender-service.outputs.modified_files.any_modified == 'true'
@@ -45,7 +58,7 @@ jobs:
       - name: Run step when a file has been contains
         if: contains(steps.changed-lender-service.outputs.modified_files, '**/LenderService.java')
         run: |
-          echo "Your test.txt file has been deleted."
+          echo "Your test.txt file has been modified."
 
       - name: Get changelog file creation
         id: added-changelog-file
