@@ -30,48 +30,24 @@ jobs:
             *.yml
             *.xml
             *.sql
-            
-      - name: Show LenderService changes
-        run: |
-          for file in ${{ steps.changed-lender-service.outputs.modified_files }}; do
-            echo "$file finded"
-          done
-          
-          
-      - name: Show any_modified
-        run: |
-           echo "$steps.changed-lender-service.outputs.any_modified"
-           
-      - name: Show only_changed
-        run: |
-           echo "$steps.changed-lender-service.outputs.only_changed"
-           
-      - name: Show any_changed
-        run: |
-           echo "$steps.changed-lender-service.outputs.any_changed"
-
+                    
       - name: Run step when LenderService changes
         if: steps.changed-lender-service.outputs.any_modified == 'true'
         run: |
           echo "LenderService file has been modified."
           
-      - name: Run step when a file has been contains
-        if: contains(steps.changed-lender-service.outputs.modified_files, '**/LenderService.java')
-        run: |
-          echo "Your test.txt file has been modified."
-
       - name: Get changelog file creation
         id: added-changelog-file
         uses: tj-actions/changed-files@v19
         with:
           files: |
-            '**/changelog.xml'
+            **/changelog.xml
           files_ignore: |
             *.yml
             *.java
             *.sql
 
       - name: Run step when changelog.xml are added or modified
-        if: steps.added-changelog-file.outputs.modified_files.any_changed == 'true'
+        if: steps.added-changelog-file.outputs.any_changed == 'true'
         run: |
           echo "One or more changelog.xml files has been added."
