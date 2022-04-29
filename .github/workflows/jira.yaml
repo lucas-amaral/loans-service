@@ -25,7 +25,7 @@ jobs:
         uses: tj-actions/changed-files@v19
         with:
           files: |
-              'src/main/java/com/zopa/loansservice/services/LenderService.java'
+              '**/LenderService.java'
           files_ignore: |
             *.yml
             *.xml
@@ -43,7 +43,7 @@ jobs:
           echo "LenderService file has been modified."
           
       - name: Run step when a file has been contains
-        if: contains(steps.changed-lender-service.outputs.modified_files, 'src/main/java/com/zopa/loansservice/services/LenderService.java')
+        if: contains(steps.changed-lender-service.outputs.modified_files, '**/LenderService.java')
         run: |
           echo "Your test.txt file has been deleted."
 
@@ -52,7 +52,7 @@ jobs:
         uses: tj-actions/changed-files@v19
         with:
           files: |
-            **/changelog.xml
+            '**/changelog.xml'
           files_ignore: |
             *.yml
             *.java
