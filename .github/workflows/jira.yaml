@@ -25,16 +25,27 @@ jobs:
         uses: tj-actions/changed-files@v19
         with:
           files: |
-              src/main/java/com/zopa/loansservice/services/LenderService.java
+              'src/main/java/com/zopa/loansservice/services/LenderService.java'
           files_ignore: |
             *.yml
             *.xml
             *.sql
-      
+            
+      - name: Show LenderService changes
+        run: |
+          for file in ${{ steps.changed-lender-service.outputs.modified_files }}; do
+            echo "$file finded"
+          done
+
       - name: Run step when LenderService changes
         if: steps.changed-lender-service.outputs.modified_files.any_modified == 'true'
         run: |
           echo "LenderService file has been modified."
+          
+      - name: Run step when a file has been contains
+        if: contains(steps.changed-lender-service.outputs.modified_files, 'src/main/java/com/zopa/loansservice/services/LenderService.java')
+        run: |
+          echo "Your test.txt file has been deleted."
 
       - name: Get changelog file creation
         id: added-changelog-file
