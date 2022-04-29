@@ -2,8 +2,9 @@ name: jira update
 
 on: 
  push:
+   branches: [main]
  pull_request:
-#   branches:
+   branches: [main]
 #       - main
 #       - 'releases/**'
 
