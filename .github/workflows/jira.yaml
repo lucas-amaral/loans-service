@@ -29,11 +29,12 @@ jobs:
         id: jira-key
         with:
           from: branch
-#       - name: Find in commit messages
-#         id: jira-key-2
-#         uses: atlassian/gajira-find-issue-key@master
-#         with:
-#           from: commits
+          
+      - name: Find in commit messages
+        id: jira-key-2
+        uses: atlassian/gajira-find-issue-key@master
+        with:
+          from: commits
       
       - name: Find in commit messages 2
         uses: atlassian/gajira-find-issue-key@master
