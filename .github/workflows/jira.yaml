@@ -68,7 +68,8 @@ jobs:
       - name: Run step when LenderService changes
         if: steps.changed-lender-service.outputs.any_modified == 'true'
         run: |
-          echo "LenderService file has been modified for ticket ${{ steps.jira-key.outputs.issue }}."
+          curl -D- -u ${{ secrets.JIRA_USER_EMAIL }}:${{ secrets.JIRA_API_TOKEN }} -X PUT --data '{ "update": { "labels": [{"add":"NewLabel"}]}}' -H "Content-Type: application/json" '${{ secrets.JIRA_BASE_URL }}/rest/api/2/issue/${{ steps.jira-key.outputs.issue }}'
+#          echo "LenderService file has been modified for ticket ${{ steps.jira-key.outputs.issue }}."
           
       - name: Get changelog file creation
         id: added-changelog-file
