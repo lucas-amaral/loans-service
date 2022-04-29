@@ -28,16 +28,22 @@ jobs:
         id: jira-key
         with:
           from: branch
-      - name: Find in commit messages
-        id: jira-key-2
-        uses: atlassian/gajira-find-issue-key@master
-        with:
-          from: commits
+#       - name: Find in commit messages
+#         id: jira-key-2
+#         uses: atlassian/gajira-find-issue-key@master
+#         with:
+#           from: commits
       
       - name: Find in commit messages 2
         uses: atlassian/gajira-find-issue-key@master
         with:
           string: ${{ github.event.ref }}
+          from: ""
+          
+      - name: Find in commit messages 3
+        uses: atlassian/gajira-find-issue-key@master
+        with:
+          string: ${{ github.event.pull_request.title }}
           from: ""
    
       - name: Get changed files using defaults
