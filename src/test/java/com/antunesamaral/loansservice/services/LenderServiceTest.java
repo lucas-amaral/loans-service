@@ -1,7 +1,7 @@
-package com.zopa.loansservice.services;
+package com.antunesamaral.loansservice.services;
 
-import com.zopa.loansservice.entities.Lender;
-import com.zopa.loansservice.repositories.LenderRepository;
+import com.antunesamaral.loansservice.entities.Lender;
+import com.antunesamaral.loansservice.repositories.LenderRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

@@ -1,4 +1,4 @@
-package com.zopa.loansservice.services.validations;
+package com.antunesamaral.loansservice.services.validations;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -7,9 +7,8 @@ import java.math.BigInteger;
 import java.util.Arrays;
 import java.util.List;
 
+import com.antunesamaral.loansservice.entities.Lender;
 import org.junit.jupiter.api.Test;
-
-import com.zopa.loansservice.entities.Lender;
 
 class LoansCalculatorValidatorTest {
 

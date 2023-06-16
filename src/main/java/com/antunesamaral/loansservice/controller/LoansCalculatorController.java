@@ -1,14 +1,13 @@
-package com.zopa.loansservice.controller;
+package com.antunesamaral.loansservice.controller;
 
 import java.math.BigInteger;
 
+import com.antunesamaral.loansservice.services.LoansCalculatorService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.zopa.loansservice.services.LoansCalculatorService;
 
 @RestController
 @RequestMapping("/loans")

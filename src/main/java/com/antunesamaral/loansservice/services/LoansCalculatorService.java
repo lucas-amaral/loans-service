@@ -1,9 +1,9 @@
-package com.zopa.loansservice.services;
+package com.antunesamaral.loansservice.services;
 
-import com.zopa.loansservice.entities.Lender;
-import com.zopa.loansservice.entities.Loans;
-import com.zopa.loansservice.exceptions.LoansException;
-import com.zopa.loansservice.services.validations.LoansCalculatorValidator;
+import com.antunesamaral.loansservice.entities.Lender;
+import com.antunesamaral.loansservice.entities.Loans;
+import com.antunesamaral.loansservice.exceptions.LoansException;
+import com.antunesamaral.loansservice.services.validations.LoansCalculatorValidator;
 import org.assertj.core.util.VisibleForTesting;
 import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;

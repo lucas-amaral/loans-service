@@ -9,8 +9,6 @@ The monthly repayment and the total repayment amounts
 should be shown in addition to the amount requested and the annual interest rate for the
 quote.
 
-## Pre requirements
-
 The application just accept one argument:
 [loan_amount]
 

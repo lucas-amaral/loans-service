@@ -1,4 +1,4 @@
-package com.zopa.loansservice.services;
+package com.antunesamaral.loansservice.services;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -14,7 +14,10 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
-import com.zopa.loansservice.repositories.LenderRepository;
+import com.antunesamaral.loansservice.entities.Lender;
+import com.antunesamaral.loansservice.entities.Loans;
+import com.antunesamaral.loansservice.exceptions.LoansException;
+import com.antunesamaral.loansservice.repositories.LenderRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -24,10 +27,6 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
-
-import com.zopa.loansservice.entities.Lender;
-import com.zopa.loansservice.entities.Loans;
-import com.zopa.loansservice.exceptions.LoansException;
 
 @ExtendWith(SpringExtension.class)
 class LoansCalculatorServiceTest {

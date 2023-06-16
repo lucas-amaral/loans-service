@@ -1,9 +1,8 @@
-package com.zopa.loansservice.repositories;
+package com.antunesamaral.loansservice.repositories;
 
+import com.antunesamaral.loansservice.entities.Lender;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-
-import com.zopa.loansservice.entities.Lender;
 
 import java.math.BigInteger;
 

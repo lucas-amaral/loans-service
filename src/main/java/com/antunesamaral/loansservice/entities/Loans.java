@@ -1,6 +1,6 @@
-package com.zopa.loansservice.entities;
+package com.antunesamaral.loansservice.entities;
 
-import com.zopa.loansservice.utils.NumberUtils;
+import com.antunesamaral.loansservice.utils.NumberUtils;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;

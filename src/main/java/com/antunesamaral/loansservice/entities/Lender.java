@@ -1,4 +1,4 @@
-package com.zopa.loansservice.entities;
+package com.antunesamaral.loansservice.entities;
 
 import static javax.persistence.GenerationType.IDENTITY;
 

@@ -1,6 +1,6 @@
-package com.zopa.loansservice;
+package com.antunesamaral.loansservice;
 
-import com.zopa.loansservice.services.LoansCalculatorService;
+import com.antunesamaral.loansservice.services.LoansCalculatorService;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;

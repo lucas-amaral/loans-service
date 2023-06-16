@@ -8,11 +8,10 @@
 		<version>2.6.4</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.zopa</groupId>
+	<groupId>com.antunesamaral</groupId>
 	<artifactId>loans-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>loans-service</name>
-	<description>Zopa Technical Test</description>
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>

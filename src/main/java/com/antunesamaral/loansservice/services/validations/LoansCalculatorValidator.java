@@ -1,9 +1,9 @@
-package com.zopa.loansservice.services.validations;
+package com.antunesamaral.loansservice.services.validations;
 
 import java.math.BigInteger;
 import java.util.List;
 
-import com.zopa.loansservice.entities.Lender;
+import com.antunesamaral.loansservice.entities.Lender;
 
 public class LoansCalculatorValidator {
 

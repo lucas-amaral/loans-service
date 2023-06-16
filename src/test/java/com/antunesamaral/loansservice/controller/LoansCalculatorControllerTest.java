@@ -1,4 +1,4 @@
-package com.zopa.loansservice.controller;
+package com.antunesamaral.loansservice.controller;
 
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -9,6 +9,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import java.math.BigInteger;
 import java.util.Optional;
 
+import com.antunesamaral.loansservice.entities.Loans;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,8 +18,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 
-import com.zopa.loansservice.entities.Loans;
-import com.zopa.loansservice.services.LoansCalculatorService;
+import com.antunesamaral.loansservice.services.LoansCalculatorService;
 
 @ExtendWith(SpringExtension.class)
 @WebMvcTest(controllers = LoansCalculatorController.class)

@@ -1,4 +1,4 @@
-package com.zopa.loansservice.services;
+package com.antunesamaral.loansservice.services;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
@@ -6,15 +6,15 @@ import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 
+import com.antunesamaral.loansservice.entities.Lender;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 
-import com.zopa.loansservice.entities.Lender;
-import com.zopa.loansservice.repositories.LenderRepository;
-import com.zopa.loansservice.services.validations.LoansCalculatorValidator;
+import com.antunesamaral.loansservice.repositories.LenderRepository;
+import com.antunesamaral.loansservice.services.validations.LoansCalculatorValidator;
 
 @Service
 public class LenderService {

@@ -1,4 +1,4 @@
-package com.zopa.loansservice.utils;
+package com.antunesamaral.loansservice.utils;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
